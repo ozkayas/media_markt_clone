@@ -22,9 +22,7 @@ class _HomePageState extends State<HomePage> {
     final Size size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
-        body: Center(
-            //child: SvgPicture.asset('assets/Media_Markt_logo.svg'),
-            ),
+        body: Center(),
         appBar: _buildAppBar(size, context),
         bottomNavigationBar: BottomNavigationBar(
             currentIndex: _selectedTab,
@@ -37,11 +35,13 @@ class _HomePageState extends State<HomePage> {
               const BottomNavigationBarItem(
                   icon: Icon(Icons.shopping_cart), label: 'Sepet'),
             ]),
+        drawer: Drawer(),
       ),
     );
   }
 
   AppBar _buildAppBar(Size size, BuildContext context) => AppBar(
+        automaticallyImplyLeading: false,
         titleSpacing: 8,
         elevation: 0,
         toolbarHeight: size.height * 0.08,
@@ -51,31 +51,35 @@ class _HomePageState extends State<HomePage> {
             color: Colors.white,
             borderRadius: BorderRadius.circular(4),
           ),
-          child: Row(
-            children: [
-              IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.menu,
-                    color: Colors.grey,
-                  )),
-              Expanded(
-                  child: TextField(
-                cursorHeight: 22,
-                decoration: new InputDecoration(
-                    border: InputBorder.none,
-                    focusedBorder: InputBorder.none,
-                    enabledBorder: InputBorder.none,
-                    errorBorder: InputBorder.none,
-                    disabledBorder: InputBorder.none,
-                    contentPadding: EdgeInsets.only(
-                        left: 15, bottom: 11, top: 11, right: 15),
-                    hintText: "Ürün arama"),
-              )),
-              IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.search, color: Colors.grey)),
-            ],
+          child: Builder(
+            builder: (BuildContext context) => Row(
+              children: [
+                IconButton(
+                    onPressed: () {
+                      Scaffold.of(context).openDrawer();
+                    },
+                    icon: Icon(
+                      Icons.menu,
+                      color: Colors.grey,
+                    )),
+                Expanded(
+                    child: TextField(
+                  cursorHeight: 22,
+                  decoration: new InputDecoration(
+                      border: InputBorder.none,
+                      focusedBorder: InputBorder.none,
+                      enabledBorder: InputBorder.none,
+                      errorBorder: InputBorder.none,
+                      disabledBorder: InputBorder.none,
+                      contentPadding: EdgeInsets.only(
+                          left: 15, bottom: 11, top: 11, right: 15),
+                      hintText: "Ürün arama"),
+                )),
+                IconButton(
+                    onPressed: () {},
+                    icon: Icon(Icons.search, color: Colors.grey)),
+              ],
+            ),
           ),
         ),
       );

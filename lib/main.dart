@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      theme: AppTheme.mainTheme,
+      theme: AppTheme.mainTheme(),
       home: HomePage(title: 'MediaMarkt Clone'),
     );
   }

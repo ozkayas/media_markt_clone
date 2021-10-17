@@ -20,8 +20,6 @@ class _HomePageState extends State<HomePage> {
   }
 
   AppBar _buildAppBar(Size size, BuildContext context) => AppBar(
-        //backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
-        backgroundColor: Colors.white,
         titleSpacing: 8,
         elevation: 0,
         toolbarHeight: size.height * 0.08,
@@ -41,6 +39,7 @@ class _HomePageState extends State<HomePage> {
                   )),
               Expanded(
                   child: TextField(
+                cursorHeight: 22,
                 decoration: new InputDecoration(
                     border: InputBorder.none,
                     focusedBorder: InputBorder.none,

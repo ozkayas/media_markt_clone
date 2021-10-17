@@ -9,12 +9,31 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int _selectedTab = 0;
+
+  void _selectTab(int index) {
+    setState(() {
+      _selectedTab = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
         appBar: _buildAppBar(size, context),
+        bottomNavigationBar: BottomNavigationBar(
+            currentIndex: _selectedTab,
+            onTap: _selectTab,
+            items: [
+              const BottomNavigationBarItem(
+                  icon: Icon(Icons.home_filled), label: 'Anasayfa'),
+              const BottomNavigationBarItem(
+                  icon: Icon(Icons.grid_view_sharp), label: 'Ürünler'),
+              const BottomNavigationBarItem(
+                  icon: Icon(Icons.shopping_cart), label: 'Sepet'),
+            ]),
       ),
     );
   }

@@ -10,7 +10,10 @@ class AppTheme {
           backgroundColor: Colors.white,
         ),
         bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-            selectedItemColor: Colors.red, unselectedItemColor: Colors.grey),
+            backgroundColor: Colors.white,
+            elevation: 2,
+            selectedItemColor: Colors.red,
+            unselectedItemColor: Colors.grey),
         textTheme: mainTextTheme,
       );
 

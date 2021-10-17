@@ -11,11 +11,51 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    final double height = MediaQuery.of(context).size.height;
+    final Size size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(toolbarHeight: height * 0.1),
+        appBar: _buildAppBar(size, context),
       ),
     );
   }
+
+  AppBar _buildAppBar(Size size, BuildContext context) => AppBar(
+        //backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+        backgroundColor: Colors.white,
+        titleSpacing: 8,
+        elevation: 0,
+        toolbarHeight: size.height * 0.08,
+        title: Container(
+          decoration: BoxDecoration(
+            border: Border.all(color: Colors.red),
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(4),
+          ),
+          child: Row(
+            children: [
+              IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.menu,
+                    color: Colors.grey,
+                  )),
+              Expanded(
+                  child: TextField(
+                decoration: new InputDecoration(
+                    border: InputBorder.none,
+                    focusedBorder: InputBorder.none,
+                    enabledBorder: InputBorder.none,
+                    errorBorder: InputBorder.none,
+                    disabledBorder: InputBorder.none,
+                    contentPadding: EdgeInsets.only(
+                        left: 15, bottom: 11, top: 11, right: 15),
+                    hintText: "Ürün arama"),
+              )),
+              IconButton(
+                  onPressed: () {},
+                  icon: Icon(Icons.search, color: Colors.grey)),
+            ],
+          ),
+        ),
+      );
 }

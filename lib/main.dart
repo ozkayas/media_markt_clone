@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:media_markt_clone/home_page.dart';
+import 'package:media_markt_clone/theme.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,9 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.red,
-      ),
+      theme: AppTheme.mainTheme,
       home: HomePage(title: 'MediaMarkt Clone'),
     );
   }

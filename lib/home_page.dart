@@ -11,9 +11,10 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    final double height = MediaQuery.of(context).size.height;
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(toolbarHeight: height * 0.1),
       ),
     );
   }

@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:media_markt_clone/models/repo.dart';
+import 'package:media_markt_clone/views/cart_view.dart';
+import 'package:media_markt_clone/views/home_view.dart';
+import 'package:media_markt_clone/views/products_view.dart';
 import 'package:media_markt_clone/widgets/drawer_item.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key, required this.title}) : super(key: key);
+class WelcomeView extends StatefulWidget {
+  const WelcomeView({Key? key, required this.title}) : super(key: key);
   final String title;
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _WelcomeViewState createState() => _WelcomeViewState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _WelcomeViewState extends State<WelcomeView> {
   int _selectedTab = 0;
 
   void _selectTab(int index) {
@@ -19,12 +22,14 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  List<Widget> tabPages = [HomeView(), ProductsView(), CartView()];
+
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
-        body: Center(),
+        body: tabPages[_selectedTab],
         appBar: _buildAppBar(size, context),
         bottomNavigationBar: _bottomNavBar(),
         drawer: _drawer(),

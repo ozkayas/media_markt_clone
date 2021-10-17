@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:media_markt_clone/home_page.dart';
+import 'package:media_markt_clone/welcome_view.dart';
 import 'package:media_markt_clone/theme.dart';
 
 void main() {
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.mainTheme(),
-      home: HomePage(title: 'MediaMarkt Clone'),
+      home: WelcomeView(title: 'MediaMarkt Clone'),
     );
   }
 }

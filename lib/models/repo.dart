@@ -1,0 +1,13 @@
+import 'package:flutter/material.dart';
+import 'package:media_markt_clone/models/drawer_item.dart';
+
+List<DrawerItem> drawerItems = [
+  DrawerItem(Icons.person, 'Hesabım', '/myAccount'),
+  DrawerItem(Icons.local_shipping_sharp, 'Sipariş Takibi', '/orderFollow'),
+  DrawerItem(Icons.confirmation_num_sharp, 'Kolay Iade', '/easyReturn'),
+  DrawerItem(Icons.shopping_cart_sharp, 'Siparişlerim', '/myOrders'),
+  DrawerItem(Icons.favorite_sharp, 'Favorilerim', '/myFavorites'),
+  DrawerItem(Icons.compare_arrows_sharp, 'Karşılaştırma Listesi', '/compare'),
+  DrawerItem(Icons.mail_sharp, 'Mesajlar', '/messages'),
+  DrawerItem(Icons.thumb_up_sharp, 'MediaMarkt CLUB', '/mediaMarktClub'),
+];

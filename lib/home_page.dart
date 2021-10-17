@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:media_markt_clone/models/repo.dart';
+import 'package:media_markt_clone/widgets/drawer_item.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key, required this.title}) : super(key: key);
@@ -24,20 +26,49 @@ class _HomePageState extends State<HomePage> {
       child: Scaffold(
         body: Center(),
         appBar: _buildAppBar(size, context),
-        bottomNavigationBar: BottomNavigationBar(
-            currentIndex: _selectedTab,
-            onTap: _selectTab,
-            items: [
-              const BottomNavigationBarItem(
-                  icon: Icon(Icons.home_filled), label: 'Anasayfa'),
-              const BottomNavigationBarItem(
-                  icon: Icon(Icons.grid_view_sharp), label: 'Ürünler'),
-              const BottomNavigationBarItem(
-                  icon: Icon(Icons.shopping_cart), label: 'Sepet'),
-            ]),
-        drawer: Drawer(),
+        bottomNavigationBar: _bottomNavBar(),
+        drawer: _drawer(),
       ),
     );
+  }
+
+  Drawer _drawer() => Drawer(
+          child: ListView(
+        children: [
+          SizedBox(
+              height: 60,
+              child: Image.asset(
+                'assets/Media_Markt_logo.png',
+              )),
+          Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'HESAP',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                ...drawerItems.map((item) => DrawerItemRow(item: item)).toList()
+              ],
+            ),
+          )
+        ],
+      ));
+
+  BottomNavigationBar _bottomNavBar() {
+    return BottomNavigationBar(
+        currentIndex: _selectedTab,
+        onTap: _selectTab,
+        items: [
+          const BottomNavigationBarItem(
+              icon: Icon(Icons.home_filled), label: 'Anasayfa'),
+          const BottomNavigationBarItem(
+              icon: Icon(Icons.grid_view_sharp), label: 'Ürünler'),
+          const BottomNavigationBarItem(
+              icon: Icon(Icons.shopping_cart), label: 'Sepet'),
+        ]);
   }
 
   AppBar _buildAppBar(Size size, BuildContext context) => AppBar(

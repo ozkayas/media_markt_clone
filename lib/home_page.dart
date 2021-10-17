@@ -22,6 +22,9 @@ class _HomePageState extends State<HomePage> {
     final Size size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
+        body: Center(
+            //child: SvgPicture.asset('assets/Media_Markt_logo.svg'),
+            ),
         appBar: _buildAppBar(size, context),
         bottomNavigationBar: BottomNavigationBar(
             currentIndex: _selectedTab,

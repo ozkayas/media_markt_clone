@@ -43,14 +43,24 @@ class _HomePageState extends State<HomePage> {
           Padding(
             padding: const EdgeInsets.all(12.0),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   'HESAP',
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
-                ...drawerItems.map((item) => DrawerItemRow(item: item)).toList()
+                ...drawerItems
+                    .map((item) => DrawerItemRow(item: item))
+                    .toList(),
+                Divider(),
+                Text(
+                  'DİĞER',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                ...secondaryDrawerItems
+                    .map((item) => DrawerItemRow(item: item))
+                    .toList(),
               ],
             ),
           )

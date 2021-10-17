@@ -11,3 +11,10 @@ List<DrawerItem> drawerItems = [
   DrawerItem(Icons.mail_sharp, 'Mesajlar', '/messages'),
   DrawerItem(Icons.thumb_up_sharp, 'MediaMarkt CLUB', '/mediaMarktClub'),
 ];
+
+List<DrawerItem> secondaryDrawerItems = [
+  DrawerItem(Icons.location_pin, 'Mağaza Bul', '/findStore'),
+  DrawerItem(Icons.local_shipping_sharp, 'Stok Sorgulama', '/stockSearch'),
+  DrawerItem(Icons.confirmation_num_sharp, 'Bize Ulaşın', '/contactUs'),
+  DrawerItem(Icons.shopping_cart_sharp, 'Ayarlar', '/settings'),
+];

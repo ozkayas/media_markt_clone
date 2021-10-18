@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:media_markt_clone/models/repo.dart';
+import 'package:media_markt_clone/views/app_text.dart/app_text.dart';
 import 'package:media_markt_clone/views/cart_view.dart';
 import 'package:media_markt_clone/views/home_view.dart';
 import 'package:media_markt_clone/views/products_view.dart';
@@ -15,6 +16,7 @@ class WelcomeView extends StatefulWidget {
 
 class _WelcomeViewState extends State<WelcomeView> {
   int _selectedTab = 0;
+  late AppTxt txt;
 
   void _selectTab(int index) {
     setState(() {
@@ -23,6 +25,12 @@ class _WelcomeViewState extends State<WelcomeView> {
   }
 
   List<Widget> tabPages = [HomeView(), ProductsView(), CartView()];
+
+  @override
+  void initState() {
+    super.initState();
+    txt = AppTxt.instance;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -77,12 +85,12 @@ class _WelcomeViewState extends State<WelcomeView> {
         currentIndex: _selectedTab,
         onTap: _selectTab,
         items: [
-          const BottomNavigationBarItem(
-              icon: Icon(Icons.home_filled), label: 'Anasayfa'),
-          const BottomNavigationBarItem(
-              icon: Icon(Icons.grid_view_sharp), label: 'Ürünler'),
-          const BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_cart), label: 'Sepet'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.home_filled), label: txt.kTabHomePage),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.grid_view_sharp), label: txt.kTabProducts),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.shopping_cart), label: txt.kTabShoppingCart),
         ]);
   }
 
@@ -119,7 +127,7 @@ class _WelcomeViewState extends State<WelcomeView> {
                       disabledBorder: InputBorder.none,
                       contentPadding: EdgeInsets.only(
                           left: 15, bottom: 11, top: 11, right: 15),
-                      hintText: "Ürün arama"),
+                      hintText: txt.kProductSearch),
                 )),
                 IconButton(
                     onPressed: () {},

@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:media_markt_clone/models/repo.dart';
+import 'package:media_markt_clone/views/app_text.dart/app_text.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class HomeView extends StatefulWidget {
@@ -12,6 +13,7 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   int _carouselIndex = 0;
+  var txt = AppTxt.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -19,11 +21,16 @@ class _HomeViewState extends State<HomeView> {
     return Scaffold(
       body: ListView(children: [
         _mainCarousel(),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 16),
-          child: Text('Sizin İçin Seçtiklerimiz', style: textTheme.headline2),
-        )
+        _redTitle(textTheme, txt.kChosenForYou),
+        _redTitle(textTheme, txt.kMMSuggests),
       ]),
+    );
+  }
+
+  Padding _redTitle(TextTheme textTheme, String title) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 16),
+      child: Text(title, style: textTheme.headline2),
     );
   }
 

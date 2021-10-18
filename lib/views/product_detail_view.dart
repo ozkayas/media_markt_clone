@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class ProductDetailView extends StatefulWidget {
-  const ProductDetailView({Key? key}) : super(key: key);
-
+  const ProductDetailView({Key? key, required this.url}) : super(key: key);
+  final String url;
   @override
   _ProductDetailViewState createState() => _ProductDetailViewState();
 }
@@ -20,6 +20,13 @@ class _ProductDetailViewState extends State<ProductDetailView> {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return SafeArea(
+      child: Scaffold(
+        body: WebView(
+          initialUrl: widget.url,
+          javascriptMode: JavascriptMode.unrestricted,
+        ),
+      ),
+    );
   }
 }

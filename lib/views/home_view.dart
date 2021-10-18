@@ -22,6 +22,7 @@ class _HomeViewState extends State<HomeView> {
       body: ListView(children: [
         _mainCarousel(),
         _redTitle(textTheme, txt.kChosenForYou),
+        ListView.builder(itemBuilder: itemBuilder),
         _redTitle(textTheme, txt.kMMSuggests),
       ]),
     );
@@ -81,7 +82,7 @@ class _HomeViewState extends State<HomeView> {
           paintStyle: PaintingStyle.fill,
           strokeWidth: 2,
           activeStrokeWidth: 2,
-          dotColor: Colors.grey,
+          dotColor: Colors.red.shade100,
           activeDotColor: Colors.red),
     );
   }

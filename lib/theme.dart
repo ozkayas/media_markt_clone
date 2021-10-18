@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppTheme {
   static ThemeData mainTheme() => ThemeData(
+        fontFamily: 'MM',
         primarySwatch: Colors.red,
         scaffoldBackgroundColor: Colors.white,
         appBarTheme: const AppBarTheme(

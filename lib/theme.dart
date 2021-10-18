@@ -30,9 +30,9 @@ class AppTheme {
       color: Colors.black,
     ),
     headline2: TextStyle(
-      fontSize: 21.0,
+      fontSize: 18.0,
       fontWeight: FontWeight.w700,
-      color: Colors.black,
+      color: Colors.red,
     ),
   );
 }

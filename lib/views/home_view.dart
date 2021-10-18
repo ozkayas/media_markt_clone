@@ -15,8 +15,22 @@ class _HomeViewState extends State<HomeView> {
 
   @override
   Widget build(BuildContext context) {
+    var textTheme = Theme.of(context).textTheme;
     return Scaffold(
       body: ListView(children: [
+        _mainCarousel(),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 16),
+          child: Text('Sizin İçin Seçtiklerimiz', style: textTheme.headline2),
+        )
+      ]),
+    );
+  }
+
+  Widget _mainCarousel() {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
         CarouselSlider.builder(
           itemCount: carouselItems.length,
           itemBuilder: (context, index, realIndex) {
@@ -34,8 +48,8 @@ class _HomeViewState extends State<HomeView> {
               }),
         ),
         SizedBox(height: 8),
-        Center(child: buildIndicator(carouselItems.length))
-      ]),
+        Center(child: buildIndicator(carouselItems.length)),
+      ],
     );
   }
 

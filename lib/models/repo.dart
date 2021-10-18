@@ -18,3 +18,11 @@ List<DrawerItem> secondaryDrawerItems = [
   DrawerItem(Icons.confirmation_num_sharp, 'Bize Ulaşın', '/contactUs'),
   DrawerItem(Icons.shopping_cart_sharp, 'Ayarlar', '/settings'),
 ];
+
+List<String> carouselItems = [
+  'assets/carousel1.jpg',
+  'assets/carousel2.jpg',
+  'assets/carousel3.jpg',
+  'assets/carousel4.jpg',
+  'assets/carousel5.jpg',
+];

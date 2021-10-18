@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:media_markt_clone/models/repo.dart';
 import 'package:media_markt_clone/views/app_text.dart/app_text.dart';
+import 'package:media_markt_clone/widgets/mini_product_card.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class HomeView extends StatefulWidget {
@@ -18,11 +19,24 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     var textTheme = Theme.of(context).textTheme;
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
-      body: ListView(children: [
+      body: ListView(shrinkWrap: true, children: [
         _mainCarousel(),
         _redTitle(textTheme, txt.kChosenForYou),
-        ListView.builder(itemBuilder: itemBuilder),
+        Container(
+          //color: Colors.amber,
+          //width: size.width * 0.95,
+          height: size.height * 0.28,
+          child: ListView.builder(
+              shrinkWrap: true,
+              physics: ClampingScrollPhysics(),
+              scrollDirection: Axis.horizontal,
+              itemCount: homeShowcaseProducts.length,
+              itemBuilder: (context, index) {
+                return MiniProductCard(product: homeShowcaseProducts[index]);
+              }),
+        ),
         _redTitle(textTheme, txt.kMMSuggests),
       ]),
     );

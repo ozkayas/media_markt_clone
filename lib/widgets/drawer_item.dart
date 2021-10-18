@@ -15,7 +15,7 @@ class DrawerItemRow extends StatelessWidget {
         /// TODO: navigate to item.route
       },
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 12),
         child: Row(
           children: [
             Icon(

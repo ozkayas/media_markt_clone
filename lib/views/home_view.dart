@@ -44,7 +44,7 @@ class _HomeViewState extends State<HomeView> {
 
   Padding _redTitle(TextTheme textTheme, String title) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 16),
+      padding: const EdgeInsets.fromLTRB(8, 32, 0, 16),
       child: Text(title, style: textTheme.headline2),
     );
   }

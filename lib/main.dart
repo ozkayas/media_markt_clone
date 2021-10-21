@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:media_markt_clone/overlay_hole.dart';
 import 'package:media_markt_clone/welcome_view.dart';
 import 'package:media_markt_clone/theme.dart';
 
@@ -14,7 +15,9 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.mainTheme(),
-      home: WelcomeView(title: 'MediaMarkt Clone'),
+      //home: WelcomeView(title: 'MediaMarkt Clone'),
+      //home: OverlayView(),
+      home: OverlayHoleView(),
     );
   }
 }
